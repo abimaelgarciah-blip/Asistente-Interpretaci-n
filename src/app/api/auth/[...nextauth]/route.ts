@@ -18,12 +18,10 @@ const handler = NextAuth(authOptions);
 
 export async function GET(req: NextRequest, ctx: { params: { nextauth: string[] } }) {
   process.env.NEXTAUTH_URL = resolveBaseUrl(req);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return handler(req as any, ctx as any);
+  return handler(req as Parameters<typeof handler>[0], ctx as Parameters<typeof handler>[1]);
 }
 
 export async function POST(req: NextRequest, ctx: { params: { nextauth: string[] } }) {
   process.env.NEXTAUTH_URL = resolveBaseUrl(req);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return handler(req as any, ctx as any);
+  return handler(req as Parameters<typeof handler>[0], ctx as Parameters<typeof handler>[1]);
 }
