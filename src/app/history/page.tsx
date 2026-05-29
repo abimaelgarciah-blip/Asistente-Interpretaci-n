@@ -24,8 +24,8 @@ interface HistoryResponse {
 }
 
 export default function HistoryPage() {
-  const { status } = useSession({ required: true, onUnauthenticated() { router.push("/login"); } });
   const router = useRouter();
+  const { status } = useSession({ required: true, onUnauthenticated() { router.push("/login"); } });
   const [data, setData] = useState<HistoryResponse | null>(null);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
