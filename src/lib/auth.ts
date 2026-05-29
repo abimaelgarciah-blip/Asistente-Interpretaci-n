@@ -10,6 +10,7 @@ const DEMO_USERS = [
 ];
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: "Credenciales",
